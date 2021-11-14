@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web comıc sıte 1.1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loader"></div>
+    <header>
+       
+       <nav>
+            <div class="container">
+                <h3 class="logo">Web<span>Comic</span></h3>
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                </div>
+            </div>
+       </nav>
+        
+        <h1 class="big-title translate" data-speed="0.1">2021</h1>
+      
+        <img src="img/çerçeve.png" class="çerçeve translate" data-speed="-0.2" alt="">
+        <img src="img/çocuklar.png" class="çocuklar translate" data-speed="-0.2" alt="">
+        <img src="img/zemin.png" class="zemin translate" data-speed="0.3" alt="">
+        <img src="img/şehir güneş.png" class="şehirgüneş translate" data-speed="0.3" alt="">
+        <img src="img/bg.png" class="bg translate" data-speed="0.5" alt="">
+
+    </header>
+
+    <section>
+        <div class="shadow"></div>
+        
+        <div class="container">
+            <div class="content opacity">
+                <a href="1.bölüm.html">
+                <h3 class="title">
+                    Bölüm 1 
+                    <div class="border"></div>
+                </h3></a>
+                <p class="text">İki ortak hayalleri olan,gözlerinin önündeki evrenin farkına varan ve bu evreni şekillendirebilmek amacı ile aynı yolda omuz omuza ilerleyen, iki farklı karaktere sahip dostların başlarına glen olaylara ve serüvenlerine eşlik edeceğiz.</p>
+            </div>
+
+            <div class="imgContainer opacity">
+                <img src="img/bölüm 1.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+	<script>
+
+document.documentElement.style.setProperty('--animate-duration', '2s');
+
+// All animations will take half the time to accomplish
+document.documentElement.style.setProperty('--animate-duration', '.5s');
+
+
+var preloader = document.getElementById('loader');
+
+
+      function preLoaderHandler(){
+     preloader.parentNode.removeChild(preloader);
+         
+      }
+      function Backgrounds(){
+ 
+     pallete();
+      }
+
+      function pallete(){
+     preloader.style.backgroundColor="#092853";
+         
+      }
+
+      function pallete2(){
+     preloader.style.backgroundColor="#000000 ";
+         
+      }
+
+  
+
+      setInterval(pallete,2000  );
+
+      setInterval(pallete2,4000  );
+      setInterval(preLoaderHandler,7200  );
+
+</script>
+
+
+
+</script>
+</body>
+</html>
