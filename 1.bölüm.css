@@ -1,85 +1,432 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-*{
-width: 100%;
-height: auto;
-margin-right:auto; 
-margin-left:auto; 
-margin-top:50px; 
-text-align:center; 
-background-color: black;
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family: 'poppins', sans-serif;
+html {
+    scroll-behavior: smooth;
 }
 
-
-
-.sene{
-   width: 30%;
-   margin-top: 150px;
-
-}
-.scene
-{
-
-    width:50%;
-position: relative;
-margin-top:300px;
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    background-color: #030104;
+    overflow-x: hidden;
 }
 
-.scene2
-{
-
-    width:50%;
-position: relative;
-margin-top:1500px;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
-.scene3
-{
-
-    width:50%;
-position: relative;
-margin-top:3000px;
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-
-
-
-.scene-item-image
-{
-
-position: absolute;
-top: 5px;
-right:0%;
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
 }
 
-
-.scene-item-button
-{
-    background-color: aliceblue;
-width: 4%;
-position: absolute;
-top:270px;
-border-radius: 50%;
-border:none;
+.nav-brand .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-
-.scene-item-button:hover{
-    background-color: red;
-
+.nav-brand .logo span {
+    font-weight: 300;
+    color: #64b5f6;
 }
 
-.box{
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #64b5f6;
+}
+
+.nav-link::after {
+    content: '';
     position: absolute;
-    color: aliceblue;
-    background-color: red;
-    padding: 36px;
-    width: 13%;
-    left:72%;
-    top:160px;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #64b5f6;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Chapter Header */
+.chapter-header {
+    padding: 120px 0 3rem;
+    background: linear-gradient(135deg, #030104, #0a0a0a);
+    text-align: center;
+}
+
+.chapter-info {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.chapter-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+    letter-spacing: 5px;
+}
+
+.chapter-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.chapter-meta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.chapter-date,
+.chapter-status {
+    padding: 0.5rem 1rem;
+    background: rgba(100, 181, 246, 0.2);
+    border-radius: 20px;
+    color: #64b5f6;
+}
+
+/* Chapter Content */
+.chapter-content {
+    padding: 3rem 0;
+    background: #030104;
+}
+
+.comic-scene {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+}
+
+.scene-container {
+    position: relative;
+    background: #000;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+}
+
+.scene-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.scene-image:hover {
+    transform: scale(1.02);
+}
+
+.scene-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.scene-container:hover .scene-overlay {
+    opacity: 1;
+}
+
+.scene-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.scene-text {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: auto;
+}
+
+.scene-text p {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Scene Navigation */
+.scene-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.nav-btn {
+    background: rgba(100, 181, 246, 0.2);
+    border: 1px solid rgba(100, 181, 246, 0.3);
+    color: #64b5f6;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.nav-btn:hover {
+    background: rgba(100, 181, 246, 0.3);
+    transform: translateY(-2px);
+}
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.scene-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+
+.current-scene {
+    color: #64b5f6;
+    font-weight: 600;
+}
+
+.separator {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Chapter Description */
+.chapter-description {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chapter-description h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.chapter-description p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Footer */
+.footer {
+    background: #000000;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-content p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    color: #64b5f6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .nav-list {
+        display: none;
+    }
+    
+    .chapter-title {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+    
+    .chapter-subtitle {
+        font-size: 1rem;
+    }
+    
+    .scene-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .chapter-title {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .chapter-description {
+        padding: 1.5rem;
+    }
+    
+    .chapter-description h2 {
+        font-size: 1.5rem;
+    }
+    
+    .control-btn {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading animation for images */
+.scene-image {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.scene-image.loaded {
+    opacity: 1;
+}
+
+/* Fullscreen styles */
+.scene-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    border-radius: 0;
+}
+
+.scene-container.fullscreen .scene-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
