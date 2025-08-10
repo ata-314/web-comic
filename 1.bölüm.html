@@ -1,35 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1.Bölüm</title>
+    <meta name="description" content="Web Comic - Bölüm 1 - Macera dolu hikayeler">
+    <title>Web Comic - Bölüm 1</title>
     <link rel="stylesheet" href="1.bölüm.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
-    <header>
-
-        <img src="img/sene 2021.png" class="sene" alt="">
-
-        <div class="scene">
-            <img onmouseover="bigImg()"   onmouseout="bigImg2() " src="img/1.bölüm.jpg" class="scene-item-image" alt="">
-            <button class="scene-item-button">Ses</button>
-            <i class="fas fa-facebook"></i>
-            <div class="box">Merhava</div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">Web<span>Comic</span></a>
+            </div>
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                    <li><a href="index.html#chapters" class="nav-link">Bölümler</a></li>
+                    <li><a href="index.html#about" class="nav-link">Hakkında</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
 
-
-
-
+    <!-- Chapter Header -->
+    <header class="chapter-header">
+        <div class="container">
+            <div class="chapter-info">
+                <h1 class="chapter-title">Bölüm 1</h1>
+                <p class="chapter-subtitle">Macera dolu hikayelerin başlangıcı</p>
+                <div class="chapter-meta">
+                    <span class="chapter-date">2021</span>
+                    <span class="chapter-status">Yayında</span>
+                </div>
+            </div>
+        </div>
     </header>
 
+    <!-- Chapter Content -->
+    <main class="chapter-content">
+        <div class="container">
+            <div class="comic-scene">
+                <div class="scene-container">
+                    <img src="1.bölüm.jpg" 
+                         class="scene-image" 
+                         alt="Bölüm 1 görsel sahne"
+                         loading="lazy">
+                    
+                    <div class="scene-overlay">
+                        <div class="scene-controls">
+                            <button class="control-btn" id="soundBtn" aria-label="Ses aç/kapat">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                            <button class="control-btn" id="fullscreenBtn" aria-label="Tam ekran">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                            <button class="control-btn" id="shareBtn" aria-label="Paylaş">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="scene-text" id="sceneText">
+                            <p>Merhaba! Bu macera dolu hikayeye hoş geldiniz.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scene-navigation">
+                    <button class="nav-btn prev-btn" id="prevBtn" aria-label="Önceki sahne">
+                        <i class="fas fa-chevron-left"></i>
+                        <span>Önceki</span>
+                    </button>
+                    
+                    <div class="scene-indicator">
+                        <span class="current-scene">1</span>
+                        <span class="separator">/</span>
+                        <span class="total-scenes">1</span>
+                    </div>
+                    
+                    <button class="nav-btn next-btn" id="nextBtn" aria-label="Sonraki sahne">
+                        <span>Sonraki</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="chapter-description">
+                <h2>Bölüm Hakkında</h2>
+                <p>
+                    İki ortak hayalleri olan, gözlerinin önündeki evrenin farkına varan ve bu evreni şekillendirebilmek amacı ile aynı yolda omuz omuza ilerleyen, iki farklı karaktere sahip dostların başlarına gelen olaylara ve serüvenlerine eşlik edeceğiz.
+                </p>
+            </div>
+        </div>
+    </main>
 
-
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Web Comic. Tüm hakları saklıdır.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="1.bölüm.js"></script>
 </body>
-
 </html>
